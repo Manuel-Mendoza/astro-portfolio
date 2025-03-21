@@ -10,7 +10,9 @@ import { ModeToggle } from '../components/ui/ThemeToggle'
   })
 
   const getThemePreference = () => {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light'
   }
 
   const isDark = getThemePreference() === 'dark'
@@ -23,21 +25,8 @@ import { ModeToggle } from '../components/ui/ThemeToggle'
   <div
     class="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0"
   >
-    <div class="flex gap-6 md:gap-10">
-      <a href="/" class="flex items-center space-x-2">
-        <span class="inline-block font-bold">Bue221</span>
-      </a>
-    </div>
     <div class="flex flex-1 items-center justify-end space-x-4">
       <nav class="flex items-center space-x-1">
-        <a
-          href="https://github.com/bue221"
-          target="_blank"
-          rel="noreferrer"
-          class={buttonVariants({ variant: 'ghost' })}
-        >
-          GitHub
-        </a>
         <ModeToggle transition:persist client:load />
       </nav>
     </div>
