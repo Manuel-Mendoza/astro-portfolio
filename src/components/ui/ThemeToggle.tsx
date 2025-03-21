@@ -11,7 +11,7 @@ import {
 
 export function ModeToggle() {
   const [theme, setThemeState] = React.useState<'light' | 'dark' | 'system'>(
-    'light',
+    'system'
   )
 
   React.useEffect(() => {
@@ -28,9 +28,13 @@ export function ModeToggle() {
   }, [theme])
 
   const onChangeTheme = (theme: any) => {
-    setThemeState(theme)
-    localStorage.setItem('theme', theme)
-  }
+    setThemeState(theme);
+    if (theme === 'system') {
+      localStorage.removeItem('theme');
+    } else {
+      localStorage.setItem('theme', theme);
+    }
+  };
 
   return (
     <DropdownMenu>
